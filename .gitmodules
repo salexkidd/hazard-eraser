@@ -1,0 +1,3 @@
+[submodule "backend/hazarderaser/asset/submodule/bootstrap3"]
+	path = backend/hazarderaser/asset/submodule/bootstrap3
+	url = https://github.com/twbs/bootstrap.git

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EC Print">
+    <meta name="author" content="">
+
+    <title>Hazard Eraser</title>
+
+    <link href="{{ STATIC_URL }}bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap3/examples/offcanvas/offcanvas.css" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  </head>
+
+  <body>
+    {% include "menubar.html" %}
+    <div class="container" id="main-container">
+      {% for message in messages %}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-{{ message.tags }}">
+            <h4>{{ message }}</h4>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="effect-container">
+            {% block content %} {% endblock content %}
+          </div>
+        </div>
+      </div>
+
+    </div><!--/.container-->
+
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="soften">
+      </div>
+    </div>
+
+    {% block additional %}
+    {% endblock %}
+
+    <div class="container">
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+    </div>
+
+    <script src="{{ STATIC_URL }}bootstrap3/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

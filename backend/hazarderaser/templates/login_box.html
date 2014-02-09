@@ -1,0 +1,48 @@
+{% load coffeescript %}
+{% load bootstrap %}
+
+<style type="text/css">
+<!--
+.non-social-login {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-right: solid 1px #999999;
+}
+
+.social-login {
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+
+.social-login .btn {
+  margin-bottom: 10px;
+}
+-->
+</style>
+
+
+<form method="post" action=".">
+  {% csrf_token %}
+  {% if next %}
+  <input type="hidden" name="next" value={{ next }} />
+  {% endif %}
+
+  <div class="col-md-8 col-md-offset-2 round-div">
+    <div class="row">
+      <div class="col-md-6 social-login">
+        <a class="btn btn-lg btn-block btn-primary" href="{% url 'socialauth_begin' 'twitter' %}">
+          Twitterアカウントでログイン
+        </a>
+      </div>
+
+      <div class="col-md-6 social-login">
+        <a class="btn btn-lg btn-block btn-primary" href="{% url 'socialauth_begin' 'facebook' %}">
+          FaceBookアカウントでログイン
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+<form/>
+

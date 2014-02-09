@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load coffeescript %}
+
+{% block content %}
+<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+    
+<script type="text/javascript" src="{{ STATIC_URL }}{% coffeescript "app/get_map.coffee" %}"></script>
+
+<div class="row">
+  <div id='map' style="position:relative; width:100%; height:300px;"></div>
+</div>
+
+
+<div class="row" style="margin-top: 10px">
+  <div class="col-md-4 thumbnail">
+aaaaaa
+  </div>
+
+  <div class="col-md-4 thumbnail">
+bbbbbb
+  </div>
+
+  <div class="col-md-4 thumbnail">
+cccccc
+  </div>
+
+</div>
+{% endblock content %}
