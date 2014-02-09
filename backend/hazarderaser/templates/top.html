@@ -3,10 +3,95 @@
 
 {% block content %}
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
-    
-<script type="text/javascript" src="{{ STATIC_URL }}{% coffeescript "app/get_map.coffee" %}"></script>
+<!--<script type="text/javascript" src="{{ STATIC_URL }}{% coffeescript "app/get_map.coffee" %}"></script-->>
+<script type="text/javascript" src="{{ STATIC_URL }}app/skeleton.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}app/app.js"></script>
+<!--
+<nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" id="post-pin" class="btn btn-info pull-right" data-toggle="modal" data-target="#post-modal">
+                    <i class="glyphicon glyphicon-pushpin"></i>
+                </button>
+                <a class="navbar-brand" href="#">Hazard Eraser</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" class="" style="padding-left:3em;">
+                            <i class="glyphicon glyphicon-bell" style="position:absolute; font-size:1.5em; margin-top:13px; margin-left:-27px; color:white;"></i>
+                            <span class="badge">8</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;"><i class="glyphicon glyphicon-user" style="margin-right:5px; color:white;"></i>Username <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+-->
+{% block action %}
+ 	<button type="button" id="post-pin" class="btn btn-info pull-right" data-toggle="modal" data-target="#post-modal">
+		<i class="glyphicon glyphicon-pushpin"></i>
+	</button>
+{% endblock action %}
+    <div class="container-fluid main">
+        <section class="map"></section>
+        <section class="ticket">
+            <div class="row">
+                <a class="back-btn"> <i class="glyphicon glyphicon-chevron-right "></i> Fold</a>
+            </div>
+            <div class="row">
+                <div class="jumbotron">
+                    <h3>Recent update</h3>
+                    <img src="images/closed.jpg" style="width:100%"/>
+                    <samll>Usernameさんによってクローズされました．</samll>
+                    <hr />
+                    <button class="btn btn-success" style="width: 100%">Commit</button>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <img src="images/issue.jpg" style="width:100%" />
+                        <samll>Usernameさんによってポストされました．</samll>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
 
-<div class="row">
+    <!-- Modal -->
+    <div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="post-modal-label">New post</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">ポスト</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--<div class="row">
   <div id='map' style="position:relative; width:100%; height:300px;"></div>
 </div>
 
@@ -25,4 +110,5 @@ cccccc
   </div>
 
 </div>
+-->
 {% endblock content %}
