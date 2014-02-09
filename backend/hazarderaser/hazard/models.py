@@ -45,14 +45,19 @@ class Hazard(models.Model):
         help_text=_("Related User"),
     )
 
-    tag = models.ManyToManyField(
-        Tag, null=True, blank=True,
-        help_text="Tag",
-    )
-
     status = models.PositiveIntegerField(
         choices=HAZARD_STATUS, null=False, blank=False,
         help_text=_("hazard_status"),
+    )
+
+    latitude = models.FloatField(
+        null=False, blank=False,
+        help_text=_("latitude"),
+    )
+
+    longitude = models.FloatField(
+        null=False, blank=False,
+        help_text=_("longitude"),
     )
 
     comment = models.TextField(

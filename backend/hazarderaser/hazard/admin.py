@@ -11,7 +11,12 @@ import models as hazard_models
 
 class HazardAdmin(admin.ModelAdmin):
     """ Hazard Admin """
-    pass
-
+    list_display = (
+        "id",
+        "status",
+        "latitude",
+        "longitude",
+        "comment",
+    )
 
 admin.site.register(hazard_models.Hazard, HazardAdmin)

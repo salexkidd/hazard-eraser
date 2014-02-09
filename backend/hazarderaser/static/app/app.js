@@ -187,9 +187,9 @@
         /*window.onresize = function () {
             Map.resize();
         }*/
-	$(window).resize(function(){
-		Map.resize();	
-	})
+        $(window).resize(function(){
+            Map.resize();	
+        })
         var camera = new Camera().renderTo($(".modal-body").get(0));
         $("#post-modal").on("show.bs.modal", function () {
             camera.retry();
@@ -197,5 +197,29 @@
         $(".back-btn").click(function () {
             $(".main").removeClass("active");
         });
+
+        var get_hazard_list = function(){
+            var promise = $.ajax({
+                "type": "GET",
+                "dateType": "json",
+                "url": "/hazard/api/v1/hazard/"
+            });
+
+            promise.done(
+                function(xhr){
+                    if (xhr != null){
+                        for (var i = 0; i < xhr.length; i++) {
+                            var v = xhr[i]
+                            console.log(v);
+                            Map.pushPin(new Pin({"latitude": v.latitude, "longitude": v.longitude}).pushpin());
+                        }
+
+                    }
+                }
+            )
+        }
+        var timer = setTimeout(get_hazard_list, 3000);
+
+
     });
 }());

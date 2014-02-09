@@ -20,7 +20,7 @@ getMap = (geopos) ->
     longitude: geopos.coords.longitude
 
   console.log "---- now location is -----"
-  console.log cener
+  console.log center
 
   window.map.setView
     center: center
